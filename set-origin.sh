@@ -6,4 +6,6 @@ set -euo pipefail
 origin="${1%/}"
 grep -rl "__ORIGIN__" . --include='*.html' --include='*.xml' --include='*.txt' \
   | while read -r f; do sed -i '' "s|__ORIGIN__|${origin}|g" "$f"; echo "已更新 $f"; done
+# index.html 的 canonical 指向目录根
+sed -i '' "s|${origin}/index.html|${origin}/|g" index.html
 echo "完成。记得 git add -A && git commit && git push"
