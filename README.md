@@ -20,7 +20,15 @@
 | `sitemap.xml` / `robots.txt` | 收录用 |
 | `set-origin.sh` | 把占位域名 `__ORIGIN__` 替换为站点真实地址 |
 
-## 发布步骤（需要你操作，本地已 git init 并有首个提交）
+## 站点地址
+
+**https://blackfishdel.github.io/pcpass-notes/**（2026-09-27 上线，Pages 已生效）
+
+- 仓库：`git@github.com:blackfishdel/pcpass-notes.git`，`main` 与 `gh-pages` 两个分支内容一致。
+- 线上核对：首页与 6 个内页 200，指向主站的链接 **nofollow 计数 0**，canonical/sitemap 已指向本域名。
+- IndexNow：本仓根目录放有 key 文件，`./push-indexnow.sh` 可把 6 个 URL 提交给必应（协议要求 key 文件由被提交的 host 提供，所以不能复用主站的 key）。
+
+## 发布步骤（已执行，留档备查）
 
 1. 在 GitHub 建一个 **Public** 仓库，名字建议 `pcpass-notes`（不要勾选 README，避免冲突）。
 2. 本地接上远端并推送：
