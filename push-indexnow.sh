@@ -9,7 +9,14 @@ HOST="blackfishdel.github.io"
 BASE="https://${HOST}/pcpass-notes"
 KEY="89a2f5e1b3c4d5e6f7a8b9c0d1e2f3a4"
 KEY_LOCATION="${BASE}/${KEY}.txt"
-URLS=("$BASE/" "$BASE/two-rulers.html" "$BASE/free-quota.html" "$BASE/reduce-aigc-flow.html" "$BASE/tools.html" "$BASE/faq.html")
+URLS=(
+  "$BASE/" "$BASE/two-rulers.html" "$BASE/free-quota.html" "$BASE/reduce-aigc-flow.html"
+  "$BASE/tools.html" "$BASE/faq.html"
+  "$BASE/universities-ai-policy-snapshots.html" "$BASE/journal-aigc-reject-line.html"
+  "$BASE/journal-aigc-submission-rules.html" "$BASE/reduce-ai-free-entry.html"
+  "$BASE/reduce-ai-rate-roundup-review.html" "$BASE/aigc-version-consistency.html"
+  "$BASE/joint-comparison-library-entry.html" "$BASE/gbt-7714-2025-citation-format.html"
+)
 
 [ "${1:-}" = "--dry-run" ] && { printf '%s\n' "${URLS[@]}"; exit 0; }
 
