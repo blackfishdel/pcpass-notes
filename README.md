@@ -20,7 +20,7 @@
 | `aigc-version-consistency.html` | 检测版本要和送审版本一致 |
 | `joint-comparison-library-entry.html` | 联合比对库没有个人入口 |
 | `gbt-7714-2025-citation-format.html` | GB/T 7714-2025 实施后的两个坑 |
-| `guides-index.html` | 指南目录：主站全部 51 篇指南按六组主题收录的入口页 |
+| `guides-index.html` | 指南目录：主站全部 51 篇指南按七组收录的入口页，含知乎/CSDN 平台镜像节（新平台文章发布后往该节追加链接） |
 | `assets/style.css` | 全站样式（单文件，无 JS） |
 | `sitemap.xml` / `robots.txt` | 收录用 |
 
