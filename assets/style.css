@@ -39,4 +39,6 @@ footer.site p { font-size: 14px; color: var(--ink-2); margin: 0 0 8px; }
 table { width: 100%; border-collapse: collapse; margin: 0 0 18px; font-size: 15px; }
 th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
 th { background: var(--bg-soft); font-weight: 600; }
+pre { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; font-size: 14px; line-height: 1.6; margin: 0 0 16px; }
+pre code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 @media (min-width: 720px) { .cards { grid-template-columns: repeat(3, 1fr); align-items: stretch; } h1 { font-size: 34px; } }

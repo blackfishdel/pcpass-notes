@@ -11,7 +11,7 @@ KEY="89a2f5e1b3c4d5e6f7a8b9c0d1e2f3a4"
 KEY_LOCATION="${BASE}/${KEY}.txt"
 URLS=(
   "$BASE/" "$BASE/two-rulers.html" "$BASE/free-quota.html" "$BASE/reduce-aigc-flow.html"
-  "$BASE/tools.html" "$BASE/faq.html"
+  "$BASE/tools.html" "$BASE/faq.html" "$BASE/ai-thesis-skill.html"
   "$BASE/universities-ai-policy-snapshots.html" "$BASE/journal-aigc-reject-line.html"
   "$BASE/journal-aigc-submission-rules.html" "$BASE/reduce-ai-free-entry.html"
   "$BASE/reduce-ai-rate-roundup-review.html" "$BASE/aigc-version-consistency.html"

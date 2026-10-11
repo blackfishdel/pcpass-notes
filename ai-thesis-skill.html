@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 论文写作 Skill：安装与使用 | 论文查重与 AIGC 自查笔记</title>
+<meta name="description" content="把论文写作方法 skill 装进你的 AI 编码助手（Claude Code、Codex、Cursor 等）：四种安装方式（npx skills、一键脚本、手动复制、让助手自己装）与使用示例。">
+<link rel="canonical" href="https://blackfishdel.github.io/pcpass-notes/ai-thesis-skill.html">
+<meta property="og:title" content="AI 论文写作 Skill：安装与使用 | 论文查重与 AIGC 自查笔记">
+<meta property="og:description" content="把论文写作方法 skill 装进你的 AI 编码助手（Claude Code、Codex、Cursor 等）：四种安装方式（npx skills、一键脚本、手动复制、让助手自己装）与使用示例。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blackfishdel.github.io/pcpass-notes/ai-thesis-skill.html">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">论文查重与 AIGC 自查笔记</a>
+    <nav><a href="index.html">首页</a><a href="two-rulers.html">两把尺子</a><a href="free-quota.html">免费额度</a><a href="reduce-aigc-flow.html">降 AI 流程</a><a href="tools.html">工具清单</a><a href="faq.html">常见问题</a><a href="index.html#topic-notes">选题笔记</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>AI 论文写作 Skill：安装与使用</h1>
+<p class="lead">thesis-writing-craft 是一个给 AI 编码助手用的论文写作方法库，装进 Claude Code、Codex、Cursor 这类助手后，你说「帮我搭硕士论文大纲」，它就按公开可查的方法来做，并自带成稿自检清单。这个页面讲怎么装、怎么用。</p>
+
+<h2>它帮你做什么</h2>
+<ul>
+  <li><strong>搭大纲</strong>：先选写作范式（实证 / 实验 / 质性 / 问题对策），再给章节骨架与各章字数配比，附「问题 ↔ 对策」或「假设 ↔ 检验」对照表。</li>
+  <li><strong>文献</strong>：六步检索路线、三遍阅读法、三层筛选漏斗、精读六问、综述四步（收集 → 分类 → 评析 → 整合）与引注规范。</li>
+  <li><strong>引言与摘要</strong>：引言三段式（背景与意义 / 研究现状 / 本文安排）、摘要与引言的分工、关键词怎么选。</li>
+  <li><strong>方法章</strong>：五条硬要求、四类范式各写哪几块，配好坏写法对照。</li>
+  <li><strong>选题缩小</strong>：三层限定法（对象 → 变量 → 场景）+ 三个创新套路，把导师给的大题目缩成能做的题。</li>
+  <li><strong>成稿自检</strong>：每节过三问（读者今天能照着做什么？数字是多少？做错了会怎样？）、事实可回溯、引注以必要为限。</li>
+</ul>
+<p>方法全部来自公开来源（高校图书馆指南、高校官方写作范式文件、ACM 经典论文、Elsevier 作者服务），出处逐条标注，可在 <a href="https://github.com/blackfishdel/pcpass-notes/tree/main/skills/thesis-writing-craft">GitHub 仓库</a>里逐条核对。</p>
+
+<h2>装法一（推荐）：npx skills</h2>
+<p>本机装有 Node.js 时，用开源工具 <a href="https://github.com/vercel-labs/skills">vercel-labs/skills</a> 一条命令安装，它会自动识别你装了哪些助手（Claude Code、Codex、Cursor、GitHub Copilot、Gemini CLI、Windsurf 等约 80 个目标）并让你选择：</p>
+<pre><code>npx skills add blackfishdel/pcpass-notes</code></pre>
+<p>也可以只装这一个 skill（指到仓库里的具体目录）：</p>
+<pre><code>npx skills add https://github.com/blackfishdel/pcpass-notes/tree/main/skills/thesis-writing-craft</code></pre>
+
+<h2>装法二：一键脚本（不需要 Node）</h2>
+<p>只要本机有 git，用下面这条命令。脚本会自动找已安装助手的技能目录（有几个装几个），也可以在末尾加参数指定目标：</p>
+<pre><code>curl -fsSL https://raw.githubusercontent.com/blackfishdel/pcpass-notes/main/skills/install.sh | bash</code></pre>
+<p>指定目标的写法（四选一：claude / codex / zcode / agents）：</p>
+<pre><code>curl -fsSL https://raw.githubusercontent.com/blackfishdel/pcpass-notes/main/skills/install.sh | bash -s -- claude</code></pre>
+<table>
+  <tr><th>参数</th><th>安装位置</th><th>适用的助手</th></tr>
+  <tr><td>claude</td><td>~/.claude/skills/</td><td>Claude Code</td></tr>
+  <tr><td>codex</td><td>~/.codex/skills/</td><td>Codex CLI</td></tr>
+  <tr><td>zcode</td><td>~/.zcode/skills/</td><td>ZCode</td></tr>
+  <tr><td>agents</td><td>~/.agents/skills/</td><td>采用 .agents 通用约定的助手</td></tr>
+</table>
+<p class="muted">脚本内容就放在仓库的 skills/install.sh，先看再跑也行。卸载 = 删掉对应目录里的 thesis-writing-craft 文件夹。</p>
+
+<h2>装法三：手动复制</h2>
+<pre><code>git clone --depth 1 https://github.com/blackfishdel/pcpass-notes.git /tmp/pcpass-notes
+cp -r /tmp/pcpass-notes/skills/thesis-writing-craft ~/.claude/skills/   # Claude Code
+# Codex / ZCode 分别换成 ~/.codex/skills/ 与 ~/.zcode/skills/</code></pre>
+
+<h2>装法四：让你的 AI 助手自己装</h2>
+<p>如果你的助手能执行命令（AI 编码助手一般都可以），直接把下面这段话发给它：</p>
+<pre><code>请安装一个 skill：把 GitHub 仓库 blackfishdel/pcpass-notes 里的
+skills/thesis-writing-craft 目录克隆下来，复制到你的技能目录
+（Claude Code 是 ~/.claude/skills/，Codex 是 ~/.codex/skills/，
+用你实际使用的助手为准），装完告诉我这个 skill 怎么触发。</code></pre>
+
+<h2>装完怎么用</h2>
+<p>重启助手后正常对话即可，说需求就会触发，不用记命令。试这几句：</p>
+<ul>
+  <li>「我是管理学硕士，导师给的题目是企业数字化转型研究，说太大了，帮我缩小并搭一个论文大纲。」</li>
+  <li>「帮我规划文献综述：先读什么、怎么组织、引注怎么把握。」</li>
+  <li>「我的方法章只有一句『采用问卷调查法』，帮我改写成能过开题的写法。」</li>
+</ul>
+<p>也可以显式点名（如 <code>$thesis-writing-craft</code> 或「用论文写作方法库」）。写完整章后，让它跑一遍 skill 里的成稿自检清单，逐节核对。</p>
+
+<h2>边界</h2>
+<ul>
+  <li>这个 skill 用于搭结构、找方法、改表达、核格式；成稿的事实与观点由作者本人核实并定稿。</li>
+  <li>涉及字数、格式、送审与 AI 使用规定，一律以学校和期刊的最新通知为准。</li>
+  <li>不写「保证通过」类承诺；检测与送审结果不受任何写作方法保证。</li>
+</ul>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>本站由 PCPASS 团队维护，记录查重与 AIGC 自查的做法。工具、报告与产品入口在主站 <a href="https://www.pcpass123.com/">pcpass123.com</a>；同一批方法长文也发在 <a href="https://zhuanlan.zhihu.com/p/2087673445605810389">知乎专栏</a>。</p>
+    <p class="muted">自测结果只作参考，交稿前请按学院或期刊指定的系统复测；第三方分数不能当作一定过线的证明。</p>
+  </div>
+</footer>
+</body>
+</html>
