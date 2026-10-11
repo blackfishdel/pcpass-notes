@@ -24,6 +24,17 @@
 | `assets/style.css` | 全站样式（单文件，无 JS） |
 | `sitemap.xml` / `robots.txt` | 收录用 |
 
+## AI 论文写作 Skill
+
+[`skills/thesis-writing-craft/`](skills/thesis-writing-craft/) 是给 AI 编码助手（Codex / Claude Code 等）用的论文写作方法库：搭大纲、文献查找与综述、引言与摘要、研究方法章、选题缩小，成稿后带逐节自检清单。全部方法来自公开来源（高校图书馆指南、高校官方写作范式、ACM 经典论文、Elsevier 作者服务），出处逐条标注。
+
+安装：把 `skills/thesis-writing-craft` 整个目录复制进技能目录（Codex 在 `~/.codex/skills/`，Claude Code 在 `~/.claude/skills/`）即可：
+
+```bash
+git clone --depth 1 https://github.com/blackfishdel/pcpass-notes.git /tmp/pcpass-notes
+cp -r /tmp/pcpass-notes/skills/thesis-writing-craft ~/.codex/skills/
+```
+
 ## 怎么改
 
 全站是纯静态页面，没有构建步骤，改完直接提交即可。
