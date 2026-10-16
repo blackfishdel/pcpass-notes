@@ -16,6 +16,10 @@ URLS=(
   "$BASE/journal-aigc-submission-rules.html" "$BASE/reduce-ai-free-entry.html"
   "$BASE/reduce-ai-rate-roundup-review.html" "$BASE/aigc-version-consistency.html"
   "$BASE/joint-comparison-library-entry.html" "$BASE/gbt-7714-2025-citation-format.html"
+  "$BASE/guides-index.html" "$BASE/medical-thesis-requirements-2026.html"
+  "$BASE/law-thesis-format-and-citations.html" "$BASE/thesis-writing-milestones-map.html"
+  "$BASE/proposal-report-impact.html" "$BASE/free-reduce-sites-quota-compare.html"
+  "$BASE/pass-official-entry.html"
 )
 
 [ "${1:-}" = "--dry-run" ] && { printf '%s\n' "${URLS[@]}"; exit 0; }
