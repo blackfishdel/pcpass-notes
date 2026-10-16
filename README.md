@@ -20,9 +20,16 @@
 | `aigc-version-consistency.html` | 检测版本要和送审版本一致 |
 | `joint-comparison-library-entry.html` | 联合比对库没有个人入口 |
 | `gbt-7714-2025-citation-format.html` | GB/T 7714-2025 实施后的两个坑 |
-| `guides-index.html` | 指南目录：主站全部 51 篇指南按七组收录的入口页，含知乎/CSDN 平台镜像节（新平台文章发布后往该节追加链接） |
+| `medical-thesis-requirements-2026.html` | 医学学位论文 2026 版：字数四档与格式检测 |
+| `law-thesis-format-and-citations.html` | 法学论文的学院规范与刊物体例 |
+| `thesis-writing-milestones-map.html` | 从开题到答辩的五个节点 |
+| `proposal-report-impact.html` | 开题报告如何传到中期、终稿和抽检 |
+| `free-reduce-sites-quota-compare.html` | 五家平台的免费额度各免在哪一步 |
+| `pass-official-entry.html` | 带 pass 的站如何核对域名与收款方 |
+| `guides-index.html` | 指南目录：主站指南按主题收录的入口页，含知乎/CSDN 平台镜像节（新平台文章发布后往该节追加链接） |
 | `ai-thesis-skill.html` | AI 论文写作 Skill 的安装与使用：npx skills / 一键脚本 / 手动复制 / 让助手自己装 |
-| `assets/style.css` | 全站样式（单文件，无 JS） |
+| `assets/style.css` | 全站样式。正文一行约四十个字，右侧是目录和仓库点星 |
+| `assets/site.js` | 目录滚动高亮，以及从 GitHub 读取星数 |
 | `sitemap.xml` / `robots.txt` | 收录用 |
 
 ## AI 论文写作 Skill
@@ -48,7 +55,7 @@ cp -r /tmp/pcpass-notes/skills/thesis-writing-craft ~/.claude/skills/
 全站是纯静态页面，没有构建步骤，改完直接提交即可。
 
 - **改文案**：编辑对应的 `.html`。
-- **新增页面**：复制现有页面的 `<head>`、导航与页脚结构；把新页面加进 `sitemap.xml`；需要的话在导航里补链接。
+- **新增页面**：复制现有页面的 `<head>`、导航、`.sheet`（正文加右侧目录、点星）和页脚。正文末尾保留「主站上接着看」，写这一篇对应的主站链接，不要只链首页。把新页面加进 `sitemap.xml`。
 - **换域名**：`./set-origin.sh https://新地址`（会替换页面里的 canonical、og:url 与 sitemap、robots 中的地址）。
 - **通知搜索引擎**：`./push-indexnow.sh`（key 文件在本仓根目录，提交给必应等参与 IndexNow 的引擎）。
 

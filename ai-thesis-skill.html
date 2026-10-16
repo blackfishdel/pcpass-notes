@@ -20,10 +20,12 @@
   </div>
 </header>
 <main class="wrap">
+<div class="sheet">
+<article class="doc">
 <h1>AI 论文写作 Skill：安装与使用</h1>
 <p class="lead">thesis-writing-craft 是一个给 AI 编码助手用的论文写作方法库，装进 Claude Code、Codex、Cursor 这类助手后，你说「帮我搭硕士论文大纲」，它就按公开可查的方法来做，并自带成稿自检清单。这个页面讲怎么装、怎么用。</p>
 
-<h2>它帮你做什么</h2>
+<h2 id="它帮你做什么">它帮你做什么</h2>
 <ul>
   <li><strong>搭大纲</strong>：先选写作范式（实证 / 实验 / 质性 / 问题对策），再给章节骨架与各章字数配比，附「问题 ↔ 对策」或「假设 ↔ 检验」对照表。</li>
   <li><strong>文献</strong>：六步检索路线、三遍阅读法、三层筛选漏斗、精读六问、综述四步（收集 → 分类 → 评析 → 整合）与引注规范。</li>
@@ -34,13 +36,13 @@
 </ul>
 <p>方法全部来自公开来源（高校图书馆指南、高校官方写作范式文件、ACM 经典论文、Elsevier 作者服务），出处逐条标注，可在 <a href="https://github.com/blackfishdel/pcpass-notes/tree/main/skills/thesis-writing-craft">GitHub 仓库</a>里逐条核对。</p>
 
-<h2>装法一（推荐）：npx skills</h2>
+<h2 id="装法一推荐npx-skills">装法一（推荐）：npx skills</h2>
 <p>本机装有 Node.js 时，用开源工具 <a href="https://github.com/vercel-labs/skills">vercel-labs/skills</a> 一条命令安装，它会自动识别你装了哪些助手（Claude Code、Codex、Cursor、GitHub Copilot、Gemini CLI、Windsurf 等约 80 个目标）并让你选择：</p>
 <pre><code>npx skills add blackfishdel/pcpass-notes</code></pre>
 <p>也可以只装这一个 skill（指到仓库里的具体目录）：</p>
 <pre><code>npx skills add https://github.com/blackfishdel/pcpass-notes/tree/main/skills/thesis-writing-craft</code></pre>
 
-<h2>装法二：一键脚本（不需要 Node）</h2>
+<h2 id="装法二一键脚本不需要-Node">装法二：一键脚本（不需要 Node）</h2>
 <p>只要本机有 git，用下面这条命令。脚本会自动找已安装助手的技能目录（有几个装几个），也可以在末尾加参数指定目标：</p>
 <pre><code>curl -fsSL https://raw.githubusercontent.com/blackfishdel/pcpass-notes/main/skills/install.sh | bash</code></pre>
 <p>指定目标的写法（四选一：claude / codex / zcode / agents）：</p>
@@ -54,19 +56,19 @@
 </table>
 <p class="muted">脚本内容就放在仓库的 skills/install.sh，先看再跑也行。卸载 = 删掉对应目录里的 thesis-writing-craft 文件夹。</p>
 
-<h2>装法三：手动复制</h2>
+<h2 id="装法三手动复制">装法三：手动复制</h2>
 <pre><code>git clone --depth 1 https://github.com/blackfishdel/pcpass-notes.git /tmp/pcpass-notes
 cp -r /tmp/pcpass-notes/skills/thesis-writing-craft ~/.claude/skills/   # Claude Code
 # Codex / ZCode 分别换成 ~/.codex/skills/ 与 ~/.zcode/skills/</code></pre>
 
-<h2>装法四：让你的 AI 助手自己装</h2>
+<h2 id="装法四让你的-AI-助手自己装">装法四：让你的 AI 助手自己装</h2>
 <p>如果你的助手能执行命令（AI 编码助手一般都可以），直接把下面这段话发给它：</p>
 <pre><code>请安装一个 skill：把 GitHub 仓库 blackfishdel/pcpass-notes 里的
 skills/thesis-writing-craft 目录克隆下来，复制到你的技能目录
 （Claude Code 是 ~/.claude/skills/，Codex 是 ~/.codex/skills/，
 用你实际使用的助手为准），装完告诉我这个 skill 怎么触发。</code></pre>
 
-<h2>装完怎么用</h2>
+<h2 id="装完怎么用">装完怎么用</h2>
 <p>重启助手后正常对话即可，说需求就会触发，不用记命令。试这几句：</p>
 <ul>
   <li>「我是管理学硕士，导师给的题目是企业数字化转型研究，说太大了，帮我缩小并搭一个论文大纲。」</li>
@@ -75,12 +77,51 @@ skills/thesis-writing-craft 目录克隆下来，复制到你的技能目录
 </ul>
 <p>也可以显式点名（如 <code>$thesis-writing-craft</code> 或「用论文写作方法库」）。写完整章后，让它跑一遍 skill 里的成稿自检清单，逐节核对。</p>
 
-<h2>边界</h2>
+<h2 id="边界">边界</h2>
 <ul>
   <li>这个 skill 用于搭结构、找方法、改表达、核格式；成稿的事实与观点由作者本人核实并定稿。</li>
   <li>涉及字数、格式、送审与 AI 使用规定，一律以学校和期刊的最新通知为准。</li>
   <li>不写「保证通过」类承诺；检测与送审结果不受任何写作方法保证。</li>
 </ul>
+<section class="next">
+<h2 id="主站上接着看">主站上接着看</h2>
+<p>方法装进助手之后，成稿仍要自己核事实。主站这几篇是同一套写法的展开。</p>
+<ul>
+  <li><a href="https://www.pcpass123.com/guides/ai-thesis-skill">把论文写作方法装进 AI 助手</a>：主站长文，和这个安装页对应</li>
+  <li><a href="https://www.pcpass123.com/guides/doubao-thesis-coach">用豆包写论文怎么带上方法</a>：不能装 skill 的助手，用设定文本</li>
+  <li><a href="https://www.pcpass123.com/guides/thesis-outline-how-to-build">论文大纲怎么搭</a>：先选范式，再配字数</li>
+  <li><a href="https://www.pcpass123.com/guides/literature-review-how-to-structure">文献综述怎么组织</a>：收集、分类、评析、整合</li>
+  <li><a href="https://www.pcpass123.com/guides/method-section-how-to-write">研究方法章怎么写</a>：一句「采用问卷调查法」过不了开题</li>
+  <li><a href="https://www.pcpass123.com/guides/abstract-keywords-how-to-write">论文摘要怎么写</a>：摘要和引言分工不同</li>
+  <li><a href="https://www.pcpass123.com/guides/conclusion-and-prospect-pitfalls">论文结论怎么写不空洞</a>：结论要收得回证据</li>
+  <li><a href="https://www.pcpass123.com/guides/thesis-proposal-what-to-write">开题报告怎么写才不被毙</a>：大题目先缩小再写</li>
+  <li><a href="https://www.pcpass123.com/guides/proposal-ai-pitfalls">开题报告用 AI 写会被问穿吗</a>：事实和出处不能交给助手</li>
+</ul>
+</section>
+
+</article>
+<aside class="rail">
+<nav class="toc" aria-label="目录">
+  <p>目录</p>
+  <ol>
+    <li><a href="#它帮你做什么">它帮你做什么</a></li>
+    <li><a href="#装法一推荐npx-skills">装法一（推荐）：npx skills</a></li>
+    <li><a href="#装法二一键脚本不需要-Node">装法二：一键脚本（不需要 Node）</a></li>
+    <li><a href="#装法三手动复制">装法三：手动复制</a></li>
+    <li><a href="#装法四让你的-AI-助手自己装">装法四：让你的 AI 助手自己装</a></li>
+    <li><a href="#装完怎么用">装完怎么用</a></li>
+    <li><a href="#边界">边界</a></li>
+    <li><a href="#主站上接着看">主站上接着看</a></li>
+  </ol>
+</nav>
+<div class="repos">
+  <a class="star" data-repo="blackfishdel/pcpass-notes" href="https://github.com/blackfishdel/pcpass-notes" aria-label="在 GitHub 上为 pcpass-notes 点星"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></svg><span>pcpass-notes</span><span class="star-count"></span></a>
+  <p>本站和论文写作 skill 都在这个仓库，点星留在 GitHub。</p>
+  <a class="star" data-repo="vercel-labs/skills" href="https://github.com/vercel-labs/skills" aria-label="在 GitHub 上为 vercel-labs/skills 点星"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></svg><span>skills</span><span class="star-count"></span></a>
+  <p>把 skill 装进 Claude Code、Codex、Cursor 用的安装器。</p>
+</div>
+</aside>
+</div>
 </main>
 <footer class="site">
   <div class="wrap">
@@ -88,5 +129,6 @@ skills/thesis-writing-craft 目录克隆下来，复制到你的技能目录
     <p class="muted">自测结果只作参考，交稿前请按学院或期刊指定的系统复测；第三方分数不能当作一定过线的证明。</p>
   </div>
 </footer>
+<script src="assets/site.js" defer></script>
 </body>
 </html>
