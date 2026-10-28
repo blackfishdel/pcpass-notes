@@ -26,7 +26,7 @@
 | `proposal-report-impact.html` | 开题报告如何传到中期、终稿和抽检 |
 | `free-reduce-sites-quota-compare.html` | 五家平台的免费额度各免在哪一步 |
 | `pass-official-entry.html` | 带 pass 的站如何核对域名与收款方 |
-| `guides-index.html` | 指南目录：主站指南按主题收录的入口页，含知乎/CSDN 平台镜像节（新平台文章发布后往该节追加链接） |
+| `guides-index.html` | 指南目录：主站全部 103 篇指南按十一组收录的入口页（新增实习就业、工具横评两组），含知乎/CSDN/博客园平台镜像节（新平台文章发布后往该节追加链接） |
 | `ai-thesis-skill.html` | AI 论文写作 Skill 的安装与使用：npx skills / 一键脚本 / 手动复制 / 让助手自己装 |
 | `assets/style.css` | 全站样式。正文一行约四十个字，右侧是目录和仓库点星 |
 | `assets/site.js` | 目录滚动高亮，以及从 GitHub 读取星数 |
